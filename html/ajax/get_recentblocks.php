@@ -40,7 +40,7 @@ $block_height=$emc_info['blocks'];
 	echo '<div class="panel-heading"><b>Recent Blocks</b></div>
 	<table class="table">
 	<thead>
-	<tr><th>#</th><th>'.lang('TIME_AGO').'</th><th>'.lang('TX_COUNT').'</th><th>'.lang('TX_VOLUME_EMC').'</th><th></th></tr>
+	<tr><th>#</th><th>'.lang('TIME_AGO').'</th><th>'.lang('TX_COUNT').'</th><th>'.lang('TX_VOLUME_MFC').'</th><th></th></tr>
 	</thead>
 	<tbody>';
 	for ($conf = 0;  $conf < 5; $conf++) {

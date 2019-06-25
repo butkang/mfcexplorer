@@ -43,7 +43,7 @@ function TrimTrailingZeroes($nbr) {
 }
 	echo '
 	<div class="panel-body">
-		<span class="lead">'.lang('COINS_AVAILABLE').'</span><br>'.TrimTrailingZeroes(number_format($block_total_coins,6)).' EMC<br><hr>
+		<span class="lead">'.lang('COINS_AVAILABLE').'</span><br>'.TrimTrailingZeroes(number_format($block_total_coins,6)).' MFC<br><hr>
 		<span class="lead">'.lang('POW_DIFFICULTY').'</span><br>'.TrimTrailingZeroes(number_format($pow_difficulty,8)).'<br><hr>
 		<span class="lead">'.lang('POS_DIFFICULTY').'</span><br>'.TrimTrailingZeroes(number_format($pos_difficulty,8)).'<br>
 	</div>';

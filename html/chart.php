@@ -40,7 +40,7 @@ function get_coinsupply() {
             },
 
             series : [{
-                name : 'EMC',
+                name : 'MFC',
 				color: '#8d2d9e',
                 data : data,
                 tooltip: {

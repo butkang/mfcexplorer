@@ -87,17 +87,17 @@ if (isset($block_id) && $block_id!="") {
 				echo '
 				<tr><td>'.lang("TIME_TIME").'</td><td>'.$time.'</td></tr>
 				<tr><td class="text-'.$flagcolor.'">'.$flag.'</span> '.lang("DIFFICULTY_DIFFICULTY").'</td><td>'.TrimTrailingZeroes(number_format($difficulty,8)).'</td></tr>
-				<tr><td>'.lang("COINS_AVAILABLE").'</td><td>'.TrimTrailingZeroes(number_format($total_coins,8)).' EMC</td></tr>
+				<tr><td>'.lang("COINS_AVAILABLE").'</td><td>'.TrimTrailingZeroes(number_format($total_coins,8)).' MFC</td></tr>
 				<tr><td>'.lang("AVG_AGE").'</td><td>'.TrimTrailingZeroes(number_format($total_avgcoindays,8)).' '.lang("DAYS_DAYS").'</td></tr>
 				<tr><td>'.lang("NONCE_NONCE").'</td><td>'.$nonce.'</td></tr>
 				<tr><td>'.lang("MERKLE_ROOT").'</td><td>'.$merkleroot.'</td></tr>
 				<tr><td>'.lang("TRANSACTIONS_TRANSACTIONS").'</td><td>'.$numtx.'</td></tr>
-				<tr><td>'.lang("INPUTS_INPUTS").'</td><td><span class="label label-danger">'.$numvin.' / '.$valuein.' EMC</span></td></tr>
-				<tr><td>'.lang("OUTPUTS_OUTPUTS").'</td><td><span class="label label-success">'.$numvout.' / '.$valueout.' EMC</span></td></tr>
-				<tr><td>'.lang("MINT_MINT").'</td><td><span class="label label-primary">'.$mint.' EMC</span></td></tr>
+				<tr><td>'.lang("INPUTS_INPUTS").'</td><td><span class="label label-danger">'.$numvin.' / '.$valuein.' MFC</span></td></tr>
+				<tr><td>'.lang("OUTPUTS_OUTPUTS").'</td><td><span class="label label-success">'.$numvout.' / '.$valueout.' MFC</span></td></tr>
+				<tr><td>'.lang("MINT_MINT").'</td><td><span class="label label-primary">'.$mint.' MFC</span></td></tr>
 				<tr><td>'.lang("SIZE_SIZE").'</td><td>'.TrimTrailingZeroes(number_format($size,2)).' kiB</td></tr>
-				<tr><td>'.lang("FEE_FEE").'</td><td>'.TrimTrailingZeroes(number_format($feeWOmint,8)).' EMC</td></tr>
-				<tr><td>'.lang("COIN_DESTROYED").'</td><td>'.TrimTrailingZeroes(number_format($coindaysdestroyed,8)).' '.lang("COIN_COIN").'*'.lang("DAYS_DAYS").' / '.$valuein.' EMC = '.TrimTrailingZeroes(number_format($avgcoindaysdestroyed,8)).' '.lang("DAYS_DAYS").'</sub></td></tr>
+				<tr><td>'.lang("FEE_FEE").'</td><td>'.TrimTrailingZeroes(number_format($feeWOmint,8)).' MFC</td></tr>
+				<tr><td>'.lang("COIN_DESTROYED").'</td><td>'.TrimTrailingZeroes(number_format($coindaysdestroyed,8)).' '.lang("COIN_COIN").'*'.lang("DAYS_DAYS").' / '.$valuein.' MFC = '.TrimTrailingZeroes(number_format($avgcoindaysdestroyed,8)).' '.lang("DAYS_DAYS").'</sub></td></tr>
 				</table>
 
 

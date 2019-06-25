@@ -68,7 +68,7 @@ function TrimTrailingZeroes($nbr) {
 	<div class="panel-body">
 		<span class="lead">'.lang('LATEST_BLOCK').': <a href=/block/'.$block_hash.'>'.$block_height.'</a></span><br>
 		'.lang('CONFIRMED_TRANSACTIONS').': '.$block_numtx.'<br>
-		'.lang('TRANSACTION_VOLUME').': '.TrimTrailingZeroes(number_format($block_valueout,6)).' EMC</p>
+		'.lang('TRANSACTION_VOLUME').': '.TrimTrailingZeroes(number_format($block_valueout,6)).' MFC</p>
 		<small><span class="text-muted">
 			confirmed by <a href="/address/'.$confirmedBy.'">'.$confirmedBy.'</a><br>
 			'.date("Y-m-d H:i:s", $time).'

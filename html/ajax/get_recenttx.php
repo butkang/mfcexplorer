@@ -40,7 +40,7 @@ $block_height=$emc_info['blocks'];
 	echo '<div class="panel-heading"><b>'.lang('RECENT_TRANSACTIONS').'</b></div>
 	<table class="table">
 	<thead>
-	<tr><th>'.lang('TX_ID').'</th><th>'.lang('VALUE_EMC').'</th><th></th></tr>
+	<tr><th>'.lang('TX_ID').'</th><th>'.lang('VALUE_MFC').'</th><th></th></tr>
 	</thead>
 	<tbody>';
 	for ($conf = 0;  $conf < 9; $conf++) {

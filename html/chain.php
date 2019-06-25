@@ -193,44 +193,44 @@ $(document).ready(function() {
 		<tr>
 			<th><?php echo lang('ID_ID'); ?></th>
 			<th><?php echo lang('FLAG_FLAG'); ?></th>
-			<th><?php echo lang('POS_EMC'); ?></th>
+			<th><?php echo lang('POS_MFC'); ?></th>
 			<th><?php echo lang('POS_DAYS'); ?></th>
 			<th><?php echo lang('POS_COIN'); ?></th>
 			<th><?php echo lang('DIFFICULTY_DIFFICULTY'); ?></th>
-			<th><?php echo lang('COIN_EMC'); ?></th>
+			<th><?php echo lang('COIN_MFC'); ?></th>
 			<th><?php echo lang('CHAIN_DAYS'); ?></th>
 			<th><?php echo lang('AVGCHAIN_DAYS'); ?></th>
-			<th><?php echo lang('REWARD_EMC'); ?></th>
+			<th><?php echo lang('REWARD_MFC'); ?></th>
 			<th><?php echo lang('IN_ADDRESSES'); ?></th>
 			<th><?php echo lang('EMPTY_ADDRESSES'); ?></th>
 			<th><?php echo lang('TIME_AGO'); ?></th>
 			<th><?php echo lang('TX_COUNT'); ?></th>
-			<th><?php echo lang('TX_VOLUME_EMC'); ?></th>
+			<th><?php echo lang('TX_VOLUME_MFC'); ?></th>
 			<th><?php echo lang('TX_DAYS'); ?></th>
 			<th><?php echo lang('TX_COIN'); ?></th>
-			<th><?php echo lang('TX_FEE_EMC'); ?></th>
+			<th><?php echo lang('TX_FEE_MFC'); ?></th>
 		</tr>
 	</thead>
 	<tfoot>
 		<tr>
 			<th><?php echo lang('ID_ID'); ?></th>
 			<th><?php echo lang('FLAG_FLAG'); ?></th>
-			<th><?php echo lang('POS_EMC'); ?></th>
+			<th><?php echo lang('POS_MFC'); ?></th>
 			<th><?php echo lang('POS_DAYS'); ?></th>
 			<th><?php echo lang('POS_COIN'); ?></th>
 			<th><?php echo lang('DIFFICULTY_DIFFICULTY'); ?></th>
-			<th><?php echo lang('COIN_EMC'); ?></th>
+			<th><?php echo lang('COIN_MFC'); ?></th>
 			<th><?php echo lang('CHAIN_DAYS'); ?></th>
 			<th><?php echo lang('AVGCHAIN_DAYS'); ?></th>
-			<th><?php echo lang('REWARD_EMC'); ?></th>
+			<th><?php echo lang('REWARD_MFC'); ?></th>
 			<th><?php echo lang('IN_ADDRESSES'); ?></th>
 			<th><?php echo lang('EMPTY_ADDRESSES'); ?></th>
 			<th><?php echo lang('TIME_AGO'); ?></th>
 			<th><?php echo lang('TX_COUNT'); ?></th>
-			<th><?php echo lang('TX_VOLUME_EMC'); ?></th>
+			<th><?php echo lang('TX_VOLUME_MFC'); ?></th>
 			<th><?php echo lang('TX_DAYS'); ?></th>
 			<th><?php echo lang('TX_COIN'); ?></th>
-			<th><?php echo lang('TX_FEE_EMC'); ?></th>
+			<th><?php echo lang('TX_FEE_MFC'); ?></th>
 		</tr>
 	</tfoot>
 	<tbody>

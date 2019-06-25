@@ -70,7 +70,7 @@ if (isset($block_id) && $block_id!="") {
 				$input.='<hr>';
 			}
 			if (($row['coinbase'])!="") {
-				$input.='coinbase<br>0 EMC</td>';
+				$input.='coinbase<br>0 MFC</td>';
 			} else {
 				if ($row['address']=="") {
 					$address="N/A";
@@ -81,7 +81,7 @@ if (isset($block_id) && $block_id!="") {
 				if ($address!="N/A") {
 					$input.='<a href="/cointrace/received/vin/'.$vid.'" target="_blank"><button type="button" class="btn btn-link" style="padding:0"><i class="fa fa-code-fork fa-rotate-270"></button></a></i>';
 				}
-				$input.=' <span class="label label-danger">'.TrimTrailingZeroes(number_format($row['sent'],8)).' EMC</span> <sub>'.TrimTrailingZeroes(number_format($row['avgcoindaysdestroyed'],2)).' Days</sub><br>';
+				$input.=' <span class="label label-danger">'.TrimTrailingZeroes(number_format($row['sent'],8)).' MFC</span> <sub>'.TrimTrailingZeroes(number_format($row['avgcoindaysdestroyed'],2)).' Days</sub><br>';
 				$countvin++;
 			}
 		}
@@ -99,7 +99,7 @@ if (isset($block_id) && $block_id!="") {
 			if ($address!="N/A") {
 				$output.='<a href="/cointrace/received/vout/'.$vid.'" target="_blank"><button type="button" class="btn btn-link" style="padding:0"><i class="fa fa-code-fork fa-rotate-270"></button></a></i>';
 			}
-			$output.=' <span class="label label-success">'.TrimTrailingZeroes(number_format($row['received'],8)).' EMC</span>';
+			$output.=' <span class="label label-success">'.TrimTrailingZeroes(number_format($row['received'],8)).' MFC</span>';
 			$countvout++;
 		}
 		$fee=$row['fee'];
