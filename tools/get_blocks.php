@@ -890,7 +890,7 @@ function gettxoutput($dbconn, $emercoin, $txid, $txdbid, $blockid, $time, $recei
 
 
 // genesis block
-$hash="00000000bcccd459d036a588d1008fce8da3754b205736f32ddfd35350e84c2d";
+$hash="b98c3956a2fc4ad9027cd8858dc32fba36f5bfdb01e64856879d393f34297013";
 $query="SELECT hash FROM blocks ORDER BY id DESC LIMIT 10";
 $result = $dbconn->query($query);
 $dbconn->error;
