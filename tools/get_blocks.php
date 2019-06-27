@@ -113,6 +113,7 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 			$result = $dbconn->query($query);
 			$tx_ID=$dbconn -> insert_id;
 			$vin=gettxinput($dbconn, $emercoin, $txid, $tx_ID, $new_ID, $sentaddress);
+			if(isset($vin['sentaddressarray']) && is_array($vin['sentaddressarray'])) {
 			foreach ($vin['sentaddressarray'] as $address => $value) {
 				if ($addressquery=="") {
 					$addressquery="address='".$address."'";
@@ -135,6 +136,7 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 				}
 				$senttransactionaddress[$txid][$address]="1";
 			}
+			}
 			$valuein=$vin["valuein"];
 			$countvin=$vin["countvin"];
 			$countvintotal=$countvintotal+$countvin;
@@ -142,6 +144,7 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 			$coindaysdestroyed=$vin["coindaysdestroyed"];
 			$avgcoindaysdestroyed=$vin["avgcoindaysdestroyed"];
 			$vout=gettxoutput($dbconn, $emercoin, $txid, $tx_ID, $new_ID, $time, $receiveaddress);
+			if(isset($vin['receiveaddressarray']) && is_array($vin['sentaddressarray'])) {
 			foreach ($vout['receiveaddressarray'] as $address => $value) {
 				if ($addressquery=="") {
 					$addressquery="address='".$address."'";
@@ -162,6 +165,7 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 					$addresses[$address]['receivedvalue']=bcadd($addresses[$address]['receivedvalue'],$value['received'],8);
 					$addresses[$address]['receivedcount']++;
 				}
+			}
 			}
 			$valueout=$vout["valueout"];
 			$countvout=$vout["countvout"];
