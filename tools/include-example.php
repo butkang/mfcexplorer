@@ -13,4 +13,4 @@ if ($dbconn2->connect_error) {
 }
 
 require_once __DIR__ . '/include/jsonRPCClient.php';
-$mfc = new jsonRPCClient('http://123:1234@127.0.0.1:6262/');
+$emercoin = new jsonRPCClient('http://123:1234@127.0.0.1:6262/');
