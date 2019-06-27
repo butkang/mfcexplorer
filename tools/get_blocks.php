@@ -898,5 +898,5 @@ while($row = $result->fetch_assoc())
 {
 	$hash=$row['hash'];
 }
-getblockinfo($dbconn, $emercoin, $hash);
+getblockinfo($dbconn, $mfc, $hash);
 ?>
