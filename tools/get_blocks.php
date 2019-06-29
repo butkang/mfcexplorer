@@ -113,7 +113,6 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 			$result = $dbconn->query($query);
 			$tx_ID=$dbconn -> insert_id;
 			$vin=gettxinput($dbconn, $emercoin, $txid, $tx_ID, $new_ID, $sentaddress);
-			if(isset($vin['sentaddressarray']) && is_array($vin['sentaddressarray'])) {
 			foreach ($vin['sentaddressarray'] as $address => $value) {
 				if ($addressquery=="") {
 					$addressquery="address='".$address."'";
@@ -136,7 +135,6 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 				}
 				$senttransactionaddress[$txid][$address]="1";
 			}
-			}
 			$valuein=$vin["valuein"];
 			$countvin=$vin["countvin"];
 			$countvintotal=$countvintotal+$countvin;
@@ -144,7 +142,6 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 			$coindaysdestroyed=$vin["coindaysdestroyed"];
 			$avgcoindaysdestroyed=$vin["avgcoindaysdestroyed"];
 			$vout=gettxoutput($dbconn, $emercoin, $txid, $tx_ID, $new_ID, $time, $receiveaddress);
-			if(isset($vin['receiveaddressarray']) && is_array($vin['sentaddressarray'])) {
 			foreach ($vout['receiveaddressarray'] as $address => $value) {
 				if ($addressquery=="") {
 					$addressquery="address='".$address."'";
@@ -165,7 +162,6 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 					$addresses[$address]['receivedvalue']=bcadd($addresses[$address]['receivedvalue'],$value['received'],8);
 					$addresses[$address]['receivedcount']++;
 				}
-			}
 			}
 			$valueout=$vout["valueout"];
 			$countvout=$vout["countvout"];
@@ -204,12 +200,6 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 			$total_coins=bcsub(bcadd($total_coins,$mint,9),bcadd($mint,$feetotal,9),9);
 		}
 		//calculate total_coindays bcdiv($timediff,86400,9)
-		if(!isset($total_coindays)) {
-			$total_coindays = 0;
-		}
-		if(!isset($total_coins_old)) {
-			$total_coins_old = 0;
-		}
 		$total_coindays=bcadd($total_coindays,bcsub(bcmul($total_coins_old,bcdiv(bcsub($blocktime,$oldtime,9),86400,9),9),$coindaysdestroyedtotal,9),9);
 		if ($total_coins!=0) {
 			$total_avgcoindays=bcdiv($total_coindays,$total_coins,9);
@@ -242,7 +232,6 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 		$sentaddress=array();
 		$receiveaddress=array();
 		$addressquery="";
-		$addresses = [];
 		foreach ($block['tx'] as $txid) {
 			$query="INSERT INTO transactions
 			(blockid, txid)
@@ -251,7 +240,6 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 			$result = $dbconn->query($query);
 			$tx_ID=$dbconn -> insert_id;
 			$vin=gettxinput($dbconn, $emercoin, $txid, $tx_ID, $new_ID, $sentaddress);
-			if(isset($vin['sentaddressarray']) && is_array($vin['sentaddressarray'])) {
 			foreach ($vin['sentaddressarray'] as $address => $value) {
 				if ($addressquery=="") {
 					$addressquery="address='".$address."'";
@@ -274,15 +262,13 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 				}
 				$senttransactionaddress[$txid][$address]="1";
 			}
-			}
 			$valuein=$vin["valuein"];
 			$countvin=$vin["countvin"];
 			$countvintotal=$countvintotal+$countvin;
 			$time=$vin["time"];
 			$coindaysdestroyed=$vin["coindaysdestroyed"];
-			$avgcoindaysdestroyed=isset($vin["avgcoindaysdestroyed"]) ? $vin["avgcoindaysdestroyed"] : 0;
+			$avgcoindaysdestroyed=$vin["avgcoindaysdestroyed"];
 			$vout=gettxoutput($dbconn, $emercoin, $txid, $tx_ID, $new_ID, $time, $receiveaddress);
-			if(isset($vin['receiveaddressarray']) && is_array($vin['receiveaddressarray'])) {
 			foreach ($vout['receiveaddressarray'] as $address => $value) {
 				if ($addressquery=="") {
 					$addressquery="address='".$address."'";
@@ -303,7 +289,6 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 					$addresses[$address]['receivedvalue']=bcadd($addresses[$address]['receivedvalue'],$value['received'],8);
 					$addresses[$address]['receivedcount']++;
 				}
-			}
 			}
 			$valueout=$vout["valueout"];
 			$countvout=$vout["countvout"];
@@ -341,13 +326,6 @@ function getblockinfo($dbconn, $emercoin, $hash) {
 		} else if (strpos($flags,'proof-of-stake') !== false) {
 			$total_coins=bcsub(bcadd($total_coins,$mint,9),bcadd($mint,$feetotal,9),9);
 		}
-		if (!isset($total_coindays)) {
-    		$total_coindays = 0;
-		}
-		if (!isset($total_coins_old)) {
-			$total_coins_old = 0;
-		}
-
 		//calculate total_coindays
 		$total_coindays=bcadd($total_coindays,bcsub(bcmul($total_coins_old,bcdiv(bcsub($blocktime,$oldtime,9),86400,9),9),$coindaysdestroyedtotal,9),9);
 		if ($total_coins!=0) {
