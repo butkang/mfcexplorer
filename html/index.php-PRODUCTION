@@ -105,7 +105,7 @@ if ($include_file=="api") {
 	<script src="/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/js/notify-custom.js" type="text/javascript"></script>
 	<script src="/js/qrcode.min.js" type="text/javascript"></script>
-	<!-- <script src="/js/highstock.js" type="text/javascript"></script> -->
+	<script src="/js/highstock.js" type="text/javascript"></script>
 	<script src="/js/highcharts.js" type="text/javascript"></script>
 	<script src="/js/exporting.js" type="text/javascript"></script>
 	<script type="text/javascript" language="javascript" src="/js/jquery.dataTables.min.js"></script>
