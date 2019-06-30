@@ -44,6 +44,9 @@ echo '<div class="panel-heading"><b>Emercoin Versions</b><br>Get new versions <a
 						GROUP BY version
 						ORDER BY height DESC";
 	$result = $dbconn->query($showBlocksQuery);
+	if(!$result) {
+		return;
+	}
 	while($row = $result->fetch_assoc())
 	{
 		$count=bcmul(bcdiv($row['count'],1000,4),100,2);
