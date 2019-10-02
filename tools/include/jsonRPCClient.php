@@ -141,7 +141,7 @@ class jsonRPCClient {
 			file_put_contents($cachefile, json_encode($response));
 		} else {
 			if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {
-				$response = json_decode(file_get_contents($cachefile));
+				$response = json_decode(file_get_contents($cachefile), true);
 			} else {
 			throw new Exception('Unable to connect to '.$this->url);
 			}
