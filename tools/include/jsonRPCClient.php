@@ -27,15 +27,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @author sergio <jsonrpcphp@inservibile.org>
  */
-class jsonRPCClient {
-	
+class jsonRPCClient
+{
+
 	/**
 	 * Debug state
 	 *
 	 * @var boolean
 	 */
 	private $debug;
-	
+
 	/**
 	 * The server URL
 	 *
@@ -54,14 +55,15 @@ class jsonRPCClient {
 	 * @var boolean
 	 */
 	private $notification = false;
-	
+
 	/**
 	 * Takes the connection parameters
 	 *
 	 * @param string $url
 	 * @param boolean $debug
 	 */
-	public function __construct($url,$debug = false) {
+	public function __construct($url, $debug = false)
+	{
 		// server URL
 		$this->url = $url;
 		// proxy
@@ -71,19 +73,19 @@ class jsonRPCClient {
 		// message id
 		$this->id = 1;
 	}
-	
+
 	/**
 	 * Sets the notification state of the object. In this state, notifications are performed, instead of requests.
 	 *
 	 * @param boolean $notification
 	 */
-	public function setRPCNotification($notification) {
+	public function setRPCNotification($notification)
+	{
 		empty($notification) ?
-							$this->notification = false
-							:
-							$this->notification = true;
+			$this->notification = false
+			: $this->notification = true;
 	}
-	
+
 	/**
 	 * Performs a jsonRCP request and gets the results as an array
 	 *
@@ -91,13 +93,14 @@ class jsonRPCClient {
 	 * @param array $params
 	 * @return array
 	 */
-	public function __call($method,$params) {
-		
+	public function __call($method, $params)
+	{
+
 		// check
 		if (!is_scalar($method)) {
 			throw new Exception('Method name has no scalar value');
 		}
-		
+
 		// check
 		if (is_array($params)) {
 			// no keys
@@ -105,66 +108,65 @@ class jsonRPCClient {
 		} else {
 			throw new Exception('Params must be given as array');
 		}
-		
+
 		// sets notification or request task
 		if ($this->notification) {
 			$currentId = NULL;
 		} else {
 			$currentId = $this->id;
 		}
-		
+
 		// prepares the request
 		$request = array(
-						'method' => $method,
-						'params' => $params,
-						'id' => $currentId
-						);
+			'method' => $method,
+			'params' => $params,
+			'id' => $currentId
+		);
 		$request = json_encode($request);
-		$this->debug && $this->debug.='***** Request *****'."\n".$request."\n".'***** End Of request *****'."\n\n";
-		
+		$this->debug && $this->debug .= '***** Request *****' . "\n" . $request . "\n" . '***** End Of request *****' . "\n\n";
+
 		// performs the HTTP POST
-		$opts = array ('http' => array (
-							'method'  => 'POST',
-							'header'  => 'Content-type: application/json',
-							'content' => $request
-							));
+		$opts = array('http' => array(
+			'method'  => 'POST',
+			'header'  => 'Content-type: application/json',
+			'content' => $request
+		));
 		$context  = stream_context_create($opts);
 		$cachetime = 60;
-		$cachefile = dirname(__FILE__).'/cache/cached-' . $method . '.json';
+		$cachefile = dirname(__FILE__) . '/cache/cached-' . $method . '-' . md5(json_encode($params)) . '.json';
 		$fp = @fopen($this->url, 'r', false, $context);
 		if ($fp) {
 			$response = '';
-			while($row = fgets($fp)) {
-				$response.= trim($row)."\n";
+			while ($row = fgets($fp)) {
+				$response .= trim($row) . "\n";
 			}
-			$this->debug && $this->debug.='***** Server response *****'."\n".$response.'***** End of server response *****'."\n";
-			$response = json_decode(mb_convert_encoding($response,'UTF-8','UTF-8'),true);
+			$this->debug && $this->debug .= '***** Server response *****' . "\n" . $response . '***** End of server response *****' . "\n";
+			$response = json_decode(mb_convert_encoding($response, 'UTF-8', 'UTF-8'), true);
 			file_put_contents($cachefile, json_encode($response));
 		} else {
 			if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {
 				$response = json_decode(file_get_contents($cachefile), true);
 			} else {
-			throw new Exception('Unable to connect to '.$this->url);
+				throw new Exception('Unable to connect to ' . $this->url);
 			}
 		}
-		
+
 		// debug output
 		if ($this->debug) {
 			echo nl2br($debug);
 		}
-		
+
 		// final checks and return
 		if (!$this->notification) {
 			// check
 			if ($response['id'] != $currentId) {
-				throw new Exception('Incorrect response id (request id: '.$currentId.', response id: '.$response['id'].')');
+				throw new Exception('Incorrect response id (request id: ' . $currentId . ', response id: ' . $response['id'] . ')');
 			}
 			if (!is_null($response['error'])) {
-				throw new Exception('Request error: '.$response['error']);
+				throw new Exception('Request error: ' . $response['error']);
 			}
-			
+
 			return $response['result'];
-			
 		} else {
 			return true;
 		}
