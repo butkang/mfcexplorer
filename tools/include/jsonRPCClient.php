@@ -129,6 +129,8 @@ class jsonRPCClient {
 							'content' => $request
 							));
 		$context  = stream_context_create($opts);
+		$cachetime = 60;
+		$cachefile = './cache/cached-' . $method . '.json';
 		if ($fp = fopen($this->url, 'r', false, $context)) {
 			$response = '';
 			while($row = fgets($fp)) {
@@ -136,8 +138,13 @@ class jsonRPCClient {
 			}
 			$this->debug && $this->debug.='***** Server response *****'."\n".$response.'***** End of server response *****'."\n";
 			$response = json_decode(mb_convert_encoding($response,'UTF-8','UTF-8'),true);
+			file_put_contents($cachefile, json_encode($response));
 		} else {
+			if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {
+				$response = json_decode(file_get_contents($cachefile));
+			} else {
 			throw new Exception('Unable to connect to '.$this->url);
+			}
 		}
 		
 		// debug output
@@ -162,4 +169,3 @@ class jsonRPCClient {
 		}
 	}
 }
-?>
