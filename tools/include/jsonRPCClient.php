@@ -131,7 +131,8 @@ class jsonRPCClient {
 		$context  = stream_context_create($opts);
 		$cachetime = 60;
 		$cachefile = dirname(__FILE__).'/cache/cached-' . $method . '.json';
-		if ($fp = fopen($this->url, 'r', false, $context)) {
+		$fp = @fopen($this->url, 'r', false, $context);
+		if ($fp) {
 			$response = '';
 			while($row = fgets($fp)) {
 				$response.= trim($row)."\n";
