@@ -45,12 +45,16 @@ $( document ).ready(function() {
 	getPosDominance();
 });
 
+function check (html) {
+	return html = (html.search("jsonRPCClient.php")==-1) ? html : '<i class="fa fa-spinner fa-3x fa-pulse"></i>';
+}
+
 function getRawMempool() {
 	$.ajax({
 	url: "/ajax/get_rawmempool.php"
 	})
 	.done(function( html ) {
-		$('#unconfirmed_transactions').html(html);
+		$('#unconfirmed_transactions').html(check (html));
 	});
 	setTimeout(getRawMempool, 10000);
 }
@@ -60,7 +64,7 @@ function getRecentTransactions() {
 	url: "/ajax/get_recenttx.php"
 	})
 	.done(function( html ) {
-		$('#recent_transactions').html(html);
+		$('#recent_transactions').html(check (html));
 	});
 	setTimeout(getRecentTransactions, 15000);
 }
@@ -70,7 +74,7 @@ function getRecentBlocks() {
 	url: "/ajax/get_recentblocks.php"
 	})
 	.done(function( html ) {
-		$('#recent_blocks').html(html);
+		$('#recent_blocks').html(check (html));
 	});
 	setTimeout(getRecentBlocks, 15000);
 }
@@ -81,7 +85,7 @@ function getLatestBlock()
 	url: "/ajax/get_latest_block.php"
 	})
 	.done(function( html ) {
-		$('#latest_block').html(html);
+		$('#latest_block').html(check (html));
 	});
 	setTimeout(getLatestBlock, 15000);
 }
@@ -92,7 +96,7 @@ function getCurrentStatistics()
 	url: "/ajax/get_current_statistics.php"
 	})
 	.done(function( html ) {
-		$('#current_statistics').html(html);
+		$('#current_statistics').html(check (html));
 	});
 	setTimeout(getCurrentStatistics, 15000);
 }
@@ -103,7 +107,7 @@ function getPosDominance()
 	url: "/ajax/get_pos_dominance.php"
 	})
 	.done(function( html ) {
-		$('#pos_dominance').html(html);
+		$('#pos_dominance').html(check (html));
 	});
 	setTimeout(getPosDominance, 15000);
 }
@@ -114,7 +118,7 @@ function getVersionShare()
 	url: "/ajax/get_versionshare.php"
 	})
 	.done(function( html ) {
-		$('#version_share').html(html);
+		$('#version_share').html(check (html));
 	});
 	setTimeout(getVersionShare, 30000);
 }
@@ -125,7 +129,7 @@ function getExplorerStatus()
 	url: "/ajax/get_explorer_status.php"
 	})
 	.done(function( html ) {
-		$('#explorer_status').html(html);
+		$('#explorer_status').html(check (html));
 	});
 	setTimeout(getExplorerStatus, 10000);
 }
