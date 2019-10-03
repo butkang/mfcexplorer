@@ -45,8 +45,8 @@ $( document ).ready(function() {
 	getPosDominance();
 });
 
-function check (html) {
-	return html = (html.search("jsonRPCClient.php")==-1) ? html : '<i class="fa fa-spinner fa-3x fa-pulse"></i>';
+function check_request( id, html) {
+	if ( html.search("jsonRPCClient.php")==-1 ) $(id).html(html);
 }
 
 function getRawMempool() {
@@ -54,7 +54,7 @@ function getRawMempool() {
 	url: "/ajax/get_rawmempool.php"
 	})
 	.done(function( html ) {
-		$('#unconfirmed_transactions').html(check (html));
+		check_request('#unconfirmed_transactions', html);
 	});
 	setTimeout(getRawMempool, 10000);
 }
@@ -64,7 +64,7 @@ function getRecentTransactions() {
 	url: "/ajax/get_recenttx.php"
 	})
 	.done(function( html ) {
-		$('#recent_transactions').html(check (html));
+		check_request('#recent_transactions', html);
 	});
 	setTimeout(getRecentTransactions, 15000);
 }
@@ -74,7 +74,7 @@ function getRecentBlocks() {
 	url: "/ajax/get_recentblocks.php"
 	})
 	.done(function( html ) {
-		$('#recent_blocks').html(check (html));
+		check_request('#recent_blocks', html);
 	});
 	setTimeout(getRecentBlocks, 15000);
 }
@@ -85,7 +85,7 @@ function getLatestBlock()
 	url: "/ajax/get_latest_block.php"
 	})
 	.done(function( html ) {
-		$('#latest_block').html(check (html));
+		check_request('#latest_block', html);
 	});
 	setTimeout(getLatestBlock, 15000);
 }
@@ -96,7 +96,7 @@ function getCurrentStatistics()
 	url: "/ajax/get_current_statistics.php"
 	})
 	.done(function( html ) {
-		$('#current_statistics').html(check (html));
+		check_request('#current_statistics', html);
 	});
 	setTimeout(getCurrentStatistics, 15000);
 }
@@ -107,7 +107,7 @@ function getPosDominance()
 	url: "/ajax/get_pos_dominance.php"
 	})
 	.done(function( html ) {
-		$('#pos_dominance').html(check (html));
+		check_request('#pos_dominance', html);
 	});
 	setTimeout(getPosDominance, 15000);
 }
@@ -118,7 +118,7 @@ function getVersionShare()
 	url: "/ajax/get_versionshare.php"
 	})
 	.done(function( html ) {
-		$('#version_share').html(check (html));
+		check_request('#version_share', html);
 	});
 	setTimeout(getVersionShare, 30000);
 }
@@ -129,7 +129,7 @@ function getExplorerStatus()
 	url: "/ajax/get_explorer_status.php"
 	})
 	.done(function( html ) {
-		$('#explorer_status').html(check (html));
+		check_request('#explorer_status', html);
 	});
 	setTimeout(getExplorerStatus, 10000);
 }
