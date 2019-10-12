@@ -49,6 +49,7 @@ if ($type=="help")
 		'/api/stats/block_height' => 'returns the current block height',
 		'/api/stats/coin_supply' => 'returns the current coin supply',
 		'/api/stats/coin_supply_cmc' => 'returns the current coin supply for CoinMarketCap',
+		'/api/stats/getmininginfo' => 'returns the current getmininginfo',
 	);
 	$help=array(
 		'version' => '1.2.3',
@@ -912,6 +913,16 @@ if ($type=="stats" && $subtype!="")
 			echo json_encode($height_array, JSON_PRETTY_PRINT);
 		} else {
 			echo json_encode(array('error' => 'Could not decode hash'), JSON_PRETTY_PRINT);
+		}
+	}
+	elseif ($subtype=="getmininginfo") {
+		$valid_access=1;
+		header('Content-Type: application/json');
+		$getmininginfo = $emercoin->getmininginfo();
+		if (isset($getmininginfo)) {
+			echo json_encode($getmininginfo, JSON_PRETTY_PRINT);
+		} else {
+			echo json_encode(array('error' => 'Could not get getmininginfo'), JSON_PRETTY_PRINT);
 		}
 	} else if ($subtype=="coin_supply" or $subtype=="coin_supply_cmc") {
 		$valid_access=1;
