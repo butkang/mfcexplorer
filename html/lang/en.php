@@ -91,7 +91,7 @@ function lang($phrase){
 		'CHAIN_LENGTH' => 'Chain Length',
 		'CHAIN_SIZE' => 'Chain Size',
 		'COIN_DESTROYED' => 'Coin Days Destroyed',
-		'MFC_MINTED' => 'EMC Minted',
+		'MFC_MINTED' => 'MFC Minted',
 		'GENERAL_DAYS' => 'general statistics - the labels show the extrapolated daily change (based on the last 14 days)',
 		'KNOWN_ADDRESSES' => 'Known Addresses',
 		'MINUTES_BLOCKS' => 'Minutes Between Blocks',
