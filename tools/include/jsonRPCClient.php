@@ -143,6 +143,7 @@ class jsonRPCClient
 			$this->debug && $this->debug .= '***** Server response *****' . "\n" . $response . '***** End of server response *****' . "\n";
 			$response = json_decode(mb_convert_encoding($response, 'UTF-8', 'UTF-8'), true);
 			file_put_contents($cachefile, json_encode($response));
+			@chmod ($cachefile, 0666);
 		} else {
 			if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {
 				$response = json_decode(file_get_contents($cachefile), true);
