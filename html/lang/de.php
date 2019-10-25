@@ -91,7 +91,7 @@ function lang($phrase){
 		'CHAIN_LENGTH' => 'Blockchain-Länge',
 		'CHAIN_SIZE' => 'Blockchain-Größe',
 		'COIN_DESTROYED' => 'Münztage zerstört',
-		'MFC_MINTED' => 'EMC erzeugt',
+		'MFC_MINTED' => 'MFC erzeugt',
 		'GENERAL_DAYS' => 'Allgemeine Statistiken - Die Label zeigen die extrapolierte tägliche Änderung (basierend auf den letzten 14 Tagen)',
 		'KNOWN_ADDRESSES' => 'Bekannte Adressen',
 		'MINUTES_BLOCKS' => 'Minuten zwischen zwei Blöcken',

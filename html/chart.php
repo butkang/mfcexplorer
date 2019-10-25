@@ -146,7 +146,7 @@ function get_powhashrate() {
             },
 
             series : [{
-                name : 'TH/s',
+                name : 'MH/s',
 				color: '#8d2d9e',
                 data : data,
                 tooltip: {

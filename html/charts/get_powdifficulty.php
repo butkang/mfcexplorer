@@ -17,7 +17,7 @@ $days_array = array();
 while($row = $result->fetch_assoc())
 {
 	$time_epoch =($row['time'] * 1000);
-	$day_array = array($time_epoch, round($row['difficulty'],2));
+	$day_array = array($time_epoch, round($row['difficulty'],8));
 	array_push($days_array, $day_array);
 }
 print json_encode($days_array, JSON_NUMERIC_CHECK);

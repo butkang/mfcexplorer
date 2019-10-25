@@ -91,7 +91,7 @@ function lang($phrase){
 		'CHAIN_LENGTH' => 'Blokketenlengte',
 		'CHAIN_SIZE' => 'Blokketengrootte',
 		'COIN_DESTROYED' => 'Vernietigde muntdagen',
-		'MFC_MINTED' => 'Gevonden EMC',
+		'MFC_MINTED' => 'Gevonden MFC',
 		'GENERAL_DAYS' => 'Algemene statistieken - de labels tonen geëxtrapoleerde dagelijkse wijziging (gebaseerd op de laatste 14 dagen)',
 		'KNOWN_ADDRESSES' => 'Bekende adressen',
 		'MINUTES_BLOCKS' => 'Minuten tussen twee blokken',
