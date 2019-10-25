@@ -1,10 +1,8 @@
 body {
     //font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-family: "sofia-pro","Sofia Pro",sans-serif;
-    color: #eeeeee;
-    background-color: #1d1919;
-    background: url(/img/panorama.jpg);
-    background-size: cover;
+    color: #364248;
+    background-color: #efefef;
 }
 a {
     color: #d33;
@@ -17,10 +15,6 @@ a:hover {
 
 .navbar-brand {
     background: #fff;
-    filter: invert(0.9);
-}
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #d4cccc;
 }
 .navbar.navbar-default {
     background: #d33;
@@ -34,21 +28,17 @@ a:hover {
     text-shadow: none;
 }
 
-.navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>.active>a:focus,
-.navbar-default .navbar-nav>li>a:hover,
-.navbar-default .navbar-nav>li>a:focus {
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>li>a:hover {
     background: #b52828;
     box-shadow: none;
     color: #fff;
 }
 
 .form-control {
-    color: #eee;
-    background-color: #34343a;
-    border: none;
-    border-radius: 3px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 1px;
     box-shadow: none;
     transition: none;
 }
@@ -68,64 +58,36 @@ a:hover {
 .btn-link {
     color: #d33;
 }
-.panel-group {
-    opacity: 0.8;
-}
 .panel {
     box-shadow: none;
 }
 .panel-default {
-    border: 1px solid #2d2d2d;
-    background: #2d2d2d;
-    border-radius: 3px;
-    opacity: 0.8;
+    border: none;
+    background: #fff;
 }
 .panel-group .panel {
-    border: none;
+    border-radius: 2px;
 }
 .panel-default>.panel-heading {
-    background: #353535;
-    color: #e8e8e8;
-    border: none;
+    background: #fff;
 }
-.panel>.table+.panel-body {
+.panel-default>.panel-heading+.panel-collapse>.panel-body {
     border: none;
-}
-.panel-default>.panel-heading+.panel-collapse>.panel-body, .panel-body{
-    border: none;
-    border-radius: 0 0 3px 3px;
-    background: #2d2d2d;
-}
-.panel-footer {
-    background: #151515;
-    border: none;
+    background: #fff;
 }
 
-.btn-default, .btn-primry {
+.btn-default {
     background: #fff;
     color: #4c4c4c;
     text-shadow: none;
     border: none;
-    border-radius: 3px;
-}
-
-.btn-primry {
-    background: #d33;
-    color: #fff;
-}
-.btn:hover, .btn:focus, .btn.focus {
-    color: #fff;
-    text-decoration: none;
-    filter: saturate(0.5);
-}
-hr {
-  border-top: 1px solid #161d3c;
+    border-radius: 1px;
 }
 button.ColVis_Button, ul.ColVis_collection li {
     box-shadow: none;
-    color: #a9a9a9 !important;
+    color: #fff !important;
     border: none;
-    background: #34343a;
+    background: #a0a0a0;
 }
 .ColVis_Button:hover, ul.ColVis_collection li:hover {
     border: none;
@@ -137,46 +99,8 @@ button.ColVis_Button, ul.ColVis_collection li {
     box-shadow: none;
     background: #7b7b7b;
 }
-#chain_filter {
-    color: #e8e8e8;
-}
-
 table {
-  background: #25252b;
-  border-radius: 3px;
-}
-.table .table {
-    background-color: #151515;
-}
-.table>thead>tr>th {
-    vertical-align: bottom;
-    border: none;
-}
-.table>tbody>tr>th {
-  border: none;
-}
-table.dataTable thead th, table.dataTable tfoot th {
-    font-weight: normal;
-}
-.table>tbody>tr>td {
-    border-top: 1px solid #2b2b2b;
-    color: #ededed;
-}
-
-table.dataTable tbody tr {
-    background-color: #303033;
-}
-.table-striped>tbody>tr:nth-of-type(odd) {
-    background-color: #34353c;
-}
-.table>tbody>tr>td.success {
-    background-color: #264c17;
-}
-.table>tbody>tr>td.danger {
-    background-color: #731f1f;
-}
-abbr[title] {
-    border: none;
+    background: #f9f9f9;
 }
 .pager li>a, .pager li>span {
     background: none;
@@ -185,10 +109,6 @@ abbr[title] {
 
 .progress-bar {
     background: #d33;
-}
-
-.highcharts-container {
-    filter: invert(1);
 }
 
 .red{color:#FE2E2E}
