@@ -50,6 +50,7 @@ if ($type=="help")
 		'/api/stats/coin_supply' => 'returns the current coin supply',
 		'/api/stats/coin_supply_cmc' => 'returns the current coin supply for CoinMarketCap',
 		'/api/stats/getmininginfo' => 'returns the current getmininginfo',
+		'/api/stats/cmcdata' => 'returns the current CoinMarketCap MFC data',
 	);
 	$help=array(
 		'version' => '1.2.3',
@@ -924,7 +925,13 @@ if ($type=="stats" && $subtype!="")
 		} else {
 			echo json_encode(array('error' => 'Could not get getmininginfo'), JSON_PRETTY_PRINT);
 		}
-	} else if ($subtype=="coin_supply" or $subtype=="coin_supply_cmc") {
+	}
+	elseif ($subtype=="cmcdata") {
+		$valid_access=1;
+		header('Content-Type: application/json');
+		echo file_get_contents ('cmcdata.json');
+	}
+	else if ($subtype=="coin_supply" or $subtype=="coin_supply_cmc") {
 		$valid_access=1;
 		$query="SELECT total_coins FROM blocks ORDER BY height DESC LIMIT 1";
 		$result = mysqli_query($dbconn,$query);
