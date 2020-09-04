@@ -39,17 +39,17 @@ $query = "SELECT height FROM blocks
 $result = $dbconn->query($query);
 while($row = $result->fetch_assoc()) {
 	$dbHeight = $row['height'];
-}	
+}
 
 echo '<div class="panel-heading"><b>Explorer Status</b></div>
 <div class="panel-body">';
 if ($block_height == $dbHeight) {
 	echo '<span class="label label-success">SYNCHRONOUS</span><br>';
 } else {
-	echo '<span class="label label-danger">OUT-OF-SYNC</span><br>';
+	echo '<span class="label label-danger">Syncing ' . number_format((float)$dbHeight/$block_height*100, 2, '.', '') . '%...  ' . $dbHeight . ' of ' . $block_height . '</span><br>';
 }
 echo 'Connections: '.$connections;
 echo '</div>';
 
-	
+
 ?>

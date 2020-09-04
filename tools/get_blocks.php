@@ -778,7 +778,7 @@ function gettxinput($dbconn, $emercoin, $txid, $txdbid, $blockid, $sentaddress) 
 					$coindaysdestroyed=bcmul($value,bcdiv($timediff,86400,9),9);
 					//echo bcdiv($timediff,86400,9)." ";
 					$values["coindaysdestroyed"]=bcadd($values["coindaysdestroyed"],$coindaysdestroyed,9);
-					if ($timediff!=0) {
+					if ($timediff!=0 and $value!=0) {
 						$avgcoindaysdestroyed=bcdiv($coindaysdestroyed,$value,9);
 					} else {
 						$avgcoindaysdestroyed=0;
@@ -849,7 +849,7 @@ function gettxoutput($dbconn, $emercoin, $txid, $txdbid, $blockid, $time, $recei
 				//echo $vout["scriptPubKey"]["hex"]." ";
 				$hex=$vout["scriptPubKey"]["hex"];
 			}
-			if (isset($vout["scriptSig"]["reqSigs"])) {
+			if (isset($vout["scriptPubKey"]["reqSigs"])) {
 				//echo $vout["scriptPubKey"]["reqSigs"]." ";
 				$reqsigs=$vout["scriptPubKey"]["reqSigs"];
 				if ($reqsigs == '') {
@@ -858,7 +858,7 @@ function gettxoutput($dbconn, $emercoin, $txid, $txdbid, $blockid, $time, $recei
 			} else {
 				$reqsigs = 'NULL';
 			}
-			if (isset($vout["scriptSig"]["type"])) {
+			if (isset($vout["scriptPubKey"]["type"])) {
 				//echo $vout["scriptPubKey"]["type"]." ";
 				$type=$vout["scriptPubKey"]["type"];
 			}

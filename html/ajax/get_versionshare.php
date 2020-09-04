@@ -1,3 +1,4 @@
+<!--
 <?php
 if (!empty($_COOKIE["lang"])) {
 	$lang=$_COOKIE["lang"];
@@ -95,3 +96,12 @@ echo '<div class="panel-heading"><b>MFCoin Versions</b><br>Get new versions <a t
 	}
 ?>
 </tbody></table>
+-->
+
+<div class="panel-heading"><b>MFCoin wallets</b> <a target=_blank href="https://mfcoin.net/mfc-wallet/">download</a></div>
+	<table class="table">
+	<tbody>
+		<tr><td><a class="label label-success" target=_blank href="https://explorer.mfcoin.net"> explorer1</a>&nbsp;
+						<a class="label label-success" target=_blank href="https://explorer2.mfcoin.net">explorer2</a>&nbsp;
+						<a class="label label-success" target=_blank href="https://explorer3.mfcoin.net">explorer3</a></td></tr>
+	</tbody></table>
