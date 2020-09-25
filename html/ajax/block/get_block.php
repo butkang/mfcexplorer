@@ -73,7 +73,7 @@ if (isset($block_id) && $block_id!="") {
 		echo '
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">'.lang("BLOCK_DETAILS").' - #'.$height.'</h3>
+				<h3 class="panel-title">'.lang("BLOCK_DETAILS").' - #'.$height.' <a href="/api/block/hash/'.$hash.'/full" class="small">api</a></h3>
 			</div>
 			<div class="panel-body">
 

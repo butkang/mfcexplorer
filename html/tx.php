@@ -67,7 +67,7 @@ if ($hash!="") {
 		echo '
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">'.lang("TRANSACTION_DETAILS").' '.$hash.'</h3>
+				<h3 class="panel-title">'.lang("TRANSACTION_DETAILS").' '.$hash.' <a href="/api/tx/hash/'.$hash.'/full" class="small">api</a></h3>
 			</div>
 			<div class="panel-body">
 
