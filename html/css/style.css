@@ -229,3 +229,7 @@ abbr[title] {
     font-weight:bold;
     color:#7f858a;
 }
+
+.node text{
+  fill: red;
+}
